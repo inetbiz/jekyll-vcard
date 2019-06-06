@@ -1,0 +1,27 @@
+---
+layout: null
+permalink: /vcard.vcf
+---
+BEGIN:VCARD
+VERSION:3.0
+PRODID:-//StrikeHawk eCommerce,Inc.//TwentyUp//EN
+KIND:org
+N:;;;;
+FN:
+ORG:{{site.title}};Customer Service
+item1.ADR;TYPE=WORK;TYPE=pref:;;{{site.addr}};{{site.city}};{{site.state}};{{site.zip}};{{site.country}}
+item1.GEO:{{ site.lat }};{{ site.long }}
+item1.X-ABADR:us
+TEL;type=MAIN,VOICE:{{site.tel}}
+item2.URL;TYPE=WORK;TYPE=pref:https://{{site.url}}
+item2.X-ABLABEL:_$!<HomePage>!$_
+EMAIL;type=internet,work:{{site.email}}
+SOURCE:http://{{site.url}}/vcard.vcf
+IMPP;X-SERVICE-TYPE=facebook;TYPE=HOME;TYPE=pref:xmpp:{{site.social.facebook}}
+IMPP;X-SERVICE-TYPE=googletalk;TYPE=WORK:xmpp:denver.prophit@gmail.com
+X-SOCIALPROFILE;type=twitter;x-user={{site.social.twitter}}:https://twitter.com/{{site.social.twitter}}
+X-SOCIALPROFILE;type=facebook;x-user={{site.social.facebook}}:https://facebook.com/{{site.social.facebook}}
+PHOTO;ENCODING=b;TYPE=JPEG:{% base64 http://legaldemo.strikehawk.com/assets/images/balance-scale-solid.jpg %}
+X-ABShowAs:COMPANY
+REV:{% last_modified_at %Y%m%d %}T13:00:00Z-6:00
+END:VCARD
