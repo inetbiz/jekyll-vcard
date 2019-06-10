@@ -43,3 +43,8 @@ lang: en-US
 ```
 ## Add the liquid page template for vcard
 Add the vcard template to your **pages** folder
+
+## Insert link into your pages
+```html5
+<a download="/vcard.vcf" href="/vcard.vcf" class="button">Import</a>
+```
