@@ -1,5 +1,6 @@
 # Jekyll vCard 3.0 Generator
-This Jekyll plugin fetches images from the web and renders their corresponding base64 encoding.
+This Jekyll plugin fetches images from the web and renders their corresponding base64 encoding. THIS IS A WORK IN PROGRESS.
+See the issues tab and collaborate.
 
 For example, a logo would become:
 
