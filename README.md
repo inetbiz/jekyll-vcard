@@ -1,27 +1,44 @@
 # Jekyll vCard 3.0 Generator
-This Jekyll plugin fetches images from the web and renders their corresponding base64 codes.
+This Jekyll plugin fetches images from the web and renders their corresponding base64 encoding.
 
-For example, a 1×1 clear PNG would become:
+For example, a logo would become:
 
-<img src="data:image;base64, iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAAXNSR0IArs4c6QAAAAxJREFUCNdj+P//PwAF/gL+3MxZ5wAAAABJRU5ErkJggg== " />
-Be sure to know your reasons when using this plugin.
+```liquid
+PHOTO;ENCODING=b;TYPE=JPEG:{% base64 http://legaldemo.strikehawk.com/assets/images/balance-scale-solid.jpg %}`
+```
 
 ## Installation
-**ADD** 
+**ADD** `jekyll_image_encode.rb` to your **_plugins** folder.
 
-cd ${PATH_TO_JEKYLL_SITE}
-echo "gem 'jekyll_image_encode'" >> Gemfile
-bundle
-echo "require 'jekyll_image_encode'" >> _plugins/ext.rb
-Alternatively you may accomplish the same without echo and bundle:
+## Modify Gemfile
+Add mimemagic gem to your Gemfile
+```ruby
+source 'https://rubygems.org'
 
-Install the plugin by running gem install jekyll_image_encode
-Add the line require 'jekyll_image_encode' to _plugins/ext.rb
-Usage
-In the source attribute of an HTML img element, call the base64-tag providing the image URL as the only parameter:
+gem "jekyll", group: :jekyll_plugins
 
-<img src="{% base64 http://example.org/image.png %}" />
-This works for both remote (http://…) and local urls within your jekyll project.
+group :jekyll_plugins do
+  ~~~
+end
 
-License
-Jekyll Image Embed is released under the MIT License.
+  gem 'mimemagic', '~> 0.3.3'
+```
+
+## Modify _config.yml
+Add the following to your config file:
+```# The location
+tel: (352) 123-1234
+logo: balance-scale-solid.png
+email: sales@services.strikehawk.com
+addr: 1720 NW 38TH AVE.\n#57
+city: Ocala
+state: FL
+zip: 34482
+country: United States
+lat: 29.205120
+long: -82.318940
+timezone: America/New_York
+lang: en-US
+```
+## Add the liquid page template for vcard
+Add the vcard template to your **pages** folder
